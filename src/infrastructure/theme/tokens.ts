@@ -260,7 +260,12 @@ enum Green {
   Green000 = '#f6ffed',
 }
 
-export const Colors = {
+enum Others {
+  Black = '#000000',
+  White = '#FFFFFF',
+  Default = '#3D3D3B',
+}
+export const SystemColors = {
   ...Blue,
   ...Yellow,
   ...Green,
@@ -272,4 +277,5 @@ export const Colors = {
   ...Cyan,
   ...Grey,
   ...BlueGrey,
+  ...Others,
 };

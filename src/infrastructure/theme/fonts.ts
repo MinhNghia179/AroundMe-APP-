@@ -1,10 +1,8 @@
-import { customFonts } from './tokens';
-
 export const fonts = {
-  regular: customFonts['Alkatra-Regular'],
-  medium: customFonts['Alkatra-Medium'],
-  bold: customFonts['Alkatra-Bold'],
-  semiBold: customFonts['Alkatra-SemiBold'],
+  regular: 'Alkatra-Regular',
+  medium: 'Alkatra-Medium',
+  bold: 'Alkatra-Bold',
+  semiBold: 'Alkatra-SemiBold',
 };
 
 export const fontWeights = {

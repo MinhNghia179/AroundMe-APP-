@@ -1,4 +1,11 @@
-export const fonts = {};
+import { customFonts } from './tokens';
+
+export const fonts = {
+  regular: customFonts['Alkatra-Regular'],
+  medium: customFonts['Alkatra-Medium'],
+  bold: customFonts['Alkatra-Bold'],
+  semiBold: customFonts['Alkatra-SemiBold'],
+};
 
 export const fontWeights = {
   regular: 400,

@@ -1,5 +1,1 @@
-export const color = {
-  text: {},
-  background: {},
-  variant: {},
-};
+export const colorValues = {};

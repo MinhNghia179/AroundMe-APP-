@@ -1,12 +1,11 @@
-import { Text } from '@app/components/elements';
+import { Text, SafeView } from '@app/components/elements';
 import React from 'react';
-import { View } from 'react-native';
 
 const OnBoardingView = () => {
   return (
-    <View>
+    <SafeView>
       <Text>OnBoardingView</Text>
-    </View>
+    </SafeView>
   );
 };
 

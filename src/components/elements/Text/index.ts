@@ -4,6 +4,11 @@ import styled from 'styled-components';
 
 type Variant = 'error' | 'success' | 'body' | 'caption' | 'title';
 
+type CustomTextProps = {
+  variant?: Variant;
+  theme: Theme;
+};
+
 const defaultTextStyles = (theme: Theme) => `
   flex-wrap: wrap;
   margin-top: 0px;
@@ -42,7 +47,7 @@ const variants = {
 };
 
 export const CustomText = styled(Text)`
-  ${({ theme }: { theme: Theme }) => defaultTextStyles(theme)};
-  ${({ variant, theme }: { variant?: Variant; theme: Theme }) =>
+  ${({ theme }: CustomTextProps) => defaultTextStyles(theme)};
+  ${({ variant, theme }: CustomTextProps) =>
     variants[variant ?? 'body'](theme)};
 `;

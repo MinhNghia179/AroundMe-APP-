@@ -7,7 +7,9 @@ export const colors = {
     disabled: '#9C9C9C',
     secondary: '#757575',
   },
-  background: {},
+  background: {
+    primary: '#FFFFFF',
+  },
   button: {},
   icon: {},
 };

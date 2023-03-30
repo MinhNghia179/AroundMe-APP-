@@ -13,6 +13,8 @@ const firebaseConfig: FirebaseOptions = {
   messagingSenderId: Config.FIREBASE_MESSAGING_SENDER_ID,
 };
 
-firebase.initializeApp(firebaseConfig);
+if (!firebase.getApps().length) {
+  firebase.initializeApp(firebaseConfig);
+}
 
 export { firebase };

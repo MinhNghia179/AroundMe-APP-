@@ -1,5 +1,9 @@
+import {
+  AuthenticationContext,
+  AuthenticationContextType,
+} from '@app/services/authentication/AuthenticationContext';
 import { LinkingOptions, NavigationContainer } from '@react-navigation/native';
-import React from 'react';
+import React, { useContext } from 'react';
 import AccountNavigator from './AccountNavigator';
 import AppNavigator from './AppNavigator';
 
@@ -8,7 +12,9 @@ const options: LinkingOptions<{}> = {
 };
 
 export const Navigation = () => {
-  const isAuthenticate = true;
+  const { isAuthenticate } = useContext(
+    AuthenticationContext,
+  ) as AuthenticationContextType;
 
   return (
     <NavigationContainer linking={options} fallback={<></>}>

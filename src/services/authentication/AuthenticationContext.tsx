@@ -2,6 +2,7 @@ import React, { createContext, PropsWithChildren, useState } from 'react';
 
 export type AuthenticationContextType = {
   isLoading: boolean;
+  isAuthenticate: boolean;
   portalUser: unknown;
   errorMessage: string;
   onLogin(): void;
@@ -9,9 +10,12 @@ export type AuthenticationContextType = {
   onRegister(): void;
 };
 
-export const AuthenticationContext = createContext<AuthenticationContextType | null>(null);
+export const AuthenticationContext =
+  createContext<AuthenticationContextType | null>(null);
 
-const AuthenticationContextProvider = ({ children }: PropsWithChildren<unknown>) => {
+const AuthenticationContextProvider = ({
+  children,
+}: PropsWithChildren<unknown>) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [portalUser, setPortalUser] = useState<unknown>(null);
   const [errorMessage, setErrorMessage] = useState<string>('');
@@ -23,7 +27,16 @@ const AuthenticationContextProvider = ({ children }: PropsWithChildren<unknown>)
   const onRegister = () => {};
 
   return (
-    <AuthenticationContext.Provider value={{ isLoading, portalUser, errorMessage, onLogin, onRegister, onLogout }}>
+    <AuthenticationContext.Provider
+      value={{
+        isAuthenticate: !!portalUser,
+        isLoading,
+        portalUser,
+        errorMessage,
+        onLogin,
+        onRegister,
+        onLogout,
+      }}>
       {children}
     </AuthenticationContext.Provider>
   );

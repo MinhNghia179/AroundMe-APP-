@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { ACCOUNT_SCREENS } from '@app/constants';
 import AuthenticatePageView from '@app/screens/authenticateOTP/AuthenticatePageView';
 import LoginPageView from '@app/screens/login/LoginPageView';

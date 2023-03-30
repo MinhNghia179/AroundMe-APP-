@@ -9,9 +9,5 @@ export const colors = {
   },
   background: {},
   button: {},
-  alert: {},
   icon: {},
-  label: {},
-  heading: {},
-  box: {},
 };

@@ -5,9 +5,10 @@ export type AuthenticationContextType = {
   isAuthenticate: boolean;
   portalUser: unknown;
   errorMessage: string;
-  onLogin(): void;
+  onLogin(email: string, password: string): void;
   onLogout(): void;
   onRegister(): void;
+  onLoginWithGoogle(): void;
 };
 
 export const AuthenticationContext =
@@ -20,11 +21,34 @@ const AuthenticationContextProvider = ({
   const [portalUser, setPortalUser] = useState<unknown>(null);
   const [errorMessage, setErrorMessage] = useState<string>('');
 
-  const onLogin = () => {};
+  const onLogin = async (email: string, password: string) => {
+    setIsLoading(true);
+    try {
+    } catch (error) {
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-  const onLogout = () => {};
+  const onLogout = async () => {};
 
-  const onRegister = () => {};
+  const onRegister = async () => {
+    setIsLoading(true);
+    try {
+    } catch (error) {
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const onLoginWithGoogle = async () => {
+    setIsLoading(true);
+    try {
+    } catch (error) {
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <AuthenticationContext.Provider
@@ -36,6 +60,7 @@ const AuthenticationContextProvider = ({
         onLogin,
         onRegister,
         onLogout,
+        onLoginWithGoogle,
       }}>
       {children}
     </AuthenticationContext.Provider>

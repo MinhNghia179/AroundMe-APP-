@@ -5,7 +5,7 @@ import { View } from 'react-native';
 const OnBoardingView = () => {
   return (
     <View>
-      <Text variant="body">OnBoardingView</Text>
+      <Text>OnBoardingView</Text>
     </View>
   );
 };

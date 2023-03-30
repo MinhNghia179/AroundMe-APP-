@@ -1,5 +1,5 @@
 import { Theme } from '@app/infrastructure/theme/index';
-import { Text, TextProps } from 'react-native';
+import { Text } from 'react-native';
 import styled from 'styled-components';
 
 type Variant = 'error' | 'success' | 'body' | 'caption' | 'title';
@@ -43,6 +43,6 @@ const variants = {
 
 export const CustomText = styled(Text)`
   ${({ theme }: { theme: Theme }) => defaultTextStyles(theme)};
-  ${({ variant, theme }: { variant: Variant; theme: Theme }) =>
-    variants[variant](theme)};
+  ${({ variant, theme }: { variant?: Variant; theme: Theme }) =>
+    variants[variant ?? 'body'](theme)};
 `;

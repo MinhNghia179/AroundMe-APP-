@@ -16,7 +16,8 @@
     "noEmit": true,
     "resolveJsonModule": true,
     "target": "esnext",
-    "types": ["jest"]
+    "types": ["jest"],
+    "skipLibCheck": true
   },
   "exclude": ["node_modules", "babel.config.js", "metro.config.js"]
 }

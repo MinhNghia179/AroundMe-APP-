@@ -2,14 +2,10 @@ import {
   AuthenticationContext,
   AuthenticationContextType,
 } from '@app/services/authentication/AuthenticationContext';
-import { LinkingOptions, NavigationContainer } from '@react-navigation/native';
 import React, { useContext } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import AccountNavigator from './AccountNavigator';
 import AppNavigator from './AppNavigator';
-
-const options: LinkingOptions<{}> = {
-  prefixes: [],
-};
 
 export const Navigation = () => {
   const { isAuthenticate } = useContext(
@@ -17,8 +13,8 @@ export const Navigation = () => {
   ) as AuthenticationContextType;
 
   return (
-    <NavigationContainer linking={options} fallback={<></>}>
+    <SafeAreaView style={{ flex: 1 }}>
       {isAuthenticate ? <AppNavigator /> : <AccountNavigator />}
-    </NavigationContainer>
+    </SafeAreaView>
   );
 };

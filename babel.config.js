@@ -5,7 +5,7 @@ module.exports = {
       require.resolve('babel-plugin-module-resolver'),
       {
         cwd: 'babelrc',
-        extensions: ['.ts', '.tsx', '.js', '.ios.js', '.android.js'],
+        extensions: ['.ts', '.tsx', '.jsx', '.js', '.ios.js', '.android.js'],
         alias: {
           '@app': './src',
         },

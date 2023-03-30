@@ -1,20 +1,73 @@
+import { PERSISTENCE_KEY } from '@app/constants/async-storage';
 import { Navigation } from '@app/infrastructure/navigation';
 import { theme } from '@app/infrastructure/theme';
 import AuthenticationContextProvider from '@app/services/authentication/AuthenticationContext';
 import SettingContextProvider from '@app/services/setting/SettingContext';
-import React from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {
+  InitialState,
+  LinkingOptions,
+  NavigationContainer,
+  NavigationState,
+} from '@react-navigation/native';
+import { isNull } from 'lodash';
+import React, { useEffect, useState } from 'react';
+import Config from 'react-native-config';
 import { ThemeProvider } from 'styled-components';
 
-function App(): JSX.Element {
+const options: LinkingOptions<{}> = {
+  prefixes: [],
+};
+
+const App = () => {
+  const [isReady, setIsReady] = useState<boolean>(
+    __DEV__ && Config.PERSISTENCE_KEY !== 'true',
+  );
+  const [InitialState, setInitialState] = useState<InitialState>();
+
+  const onStateChange = (newState: NavigationState | undefined) => {
+    return AsyncStorage.setItem(PERSISTENCE_KEY, JSON.stringify(newState));
+  };
+
+  if (__DEV__) {
+    console.log('Running app in developer mode');
+  } else {
+    console.log('Running app in product mode');
+  }
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const savedStateString = await AsyncStorage.getItem(PERSISTENCE_KEY);
+        if (!isNull(savedStateString)) {
+          const state = JSON.parse(savedStateString);
+          setInitialState(state);
+        }
+      } finally {
+        setIsReady(true);
+      }
+    })();
+  }, []);
+
+  if (!isReady) {
+    return <></>;
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <SettingContextProvider>
         <AuthenticationContextProvider>
-          <Navigation></Navigation>
+          <NavigationContainer
+            initialState={InitialState}
+            onStateChange={onStateChange}
+            linking={options}
+            fallback={<></>}>
+            <Navigation></Navigation>
+          </NavigationContainer>
         </AuthenticationContextProvider>
       </SettingContextProvider>
     </ThemeProvider>
   );
-}
+};
 
 export default App;

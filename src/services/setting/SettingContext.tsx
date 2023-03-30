@@ -18,7 +18,13 @@ const SettingContextProvider = ({ children }: PropsWithChildren<unknown>) => {
   const onChangeBackgroundColor = (value: string) => {};
 
   return (
-    <SettingContext.Provider value={{ background, language, onChangeLanguage, onChangeBackgroundColor }}>
+    <SettingContext.Provider
+      value={{
+        background,
+        language,
+        onChangeLanguage,
+        onChangeBackgroundColor,
+      }}>
       {children}
     </SettingContext.Provider>
   );

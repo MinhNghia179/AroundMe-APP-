@@ -1,10 +1,11 @@
+import { Text } from '@app/components/elements';
 import React from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 
 const OnBoardingView = () => {
   return (
     <View>
-      <Text>OnBoardingView</Text>
+      <Text variant="body">OnBoardingView</Text>
     </View>
   );
 };

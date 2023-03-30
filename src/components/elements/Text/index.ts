@@ -1,8 +1,8 @@
 import { Theme } from '@app/infrastructure/theme/index';
-import { Text } from 'react-native';
+import { Text, TextProps } from 'react-native';
 import styled from 'styled-components';
 
-type Variant = 'error' | 'success' | 'body' | 'caption';
+type Variant = 'error' | 'success' | 'body' | 'caption' | 'title';
 
 const defaultTextStyles = (theme: Theme) => `
   flex-wrap: wrap;
@@ -29,14 +29,20 @@ const caption = (theme: Theme) => `
   font-size: ${theme.fontSizes.caption}
 `;
 
+const title = (theme: Theme) => `
+  font-size: ${theme.fontSizes.title}
+`;
+
 const variants = {
   error,
   success,
   body,
   caption,
+  title,
 };
 
 export const CustomText = styled(Text)`
   ${({ theme }: { theme: Theme }) => defaultTextStyles(theme)};
-  ${({ variant, theme }: { variant: Variant; theme: Theme }) => variants[variant](theme)};
+  ${({ variant, theme }: { variant: Variant; theme: Theme }) =>
+    variants[variant](theme)};
 `;

@@ -1,5 +1,5 @@
+import ApiClient from '@app/services/ApiClient';
 import { createModel } from '@rematch/core';
-import axios from 'axios';
 import { RootModel } from '.';
 import { Dispatch } from '..';
 
@@ -20,7 +20,7 @@ const reducers = {
 
 const effects = (dispatch: Dispatch) => ({
   async fetchDetailProfile() {
-    const response = await axios('');
+    await ApiClient.get('https://dummyjson.com/products');
   },
 });
 

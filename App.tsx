@@ -1,8 +1,9 @@
 import { PERSISTENCE_KEY } from '@app/constants/async-storage';
+import SettingContextProvider from '@app/contexts/setting/SettingContext';
 import { Navigation } from '@app/infrastructure/navigation';
 import { theme } from '@app/infrastructure/theme';
 import AuthenticationContextProvider from '@app/services/authentication/AuthenticationContext';
-import SettingContextProvider from '@app/services/setting/SettingContext';
+import Gate from '@app/store/gate';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   InitialState,
@@ -55,17 +56,19 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <SettingContextProvider>
-        <AuthenticationContextProvider>
-          <NavigationContainer
-            initialState={InitialState}
-            onStateChange={onStateChange}
-            linking={options}
-            fallback={<></>}>
-            <Navigation></Navigation>
-          </NavigationContainer>
-        </AuthenticationContextProvider>
-      </SettingContextProvider>
+      <Gate>
+        <SettingContextProvider>
+          <AuthenticationContextProvider>
+            <NavigationContainer
+              initialState={InitialState}
+              onStateChange={onStateChange}
+              linking={options}
+              fallback={<></>}>
+              <Navigation></Navigation>
+            </NavigationContainer>
+          </AuthenticationContextProvider>
+        </SettingContextProvider>
+      </Gate>
     </ThemeProvider>
   );
 };

@@ -9,8 +9,8 @@ const OnBoardingView = () => {
 
   const data = useSelector((state: RootStore) => state.profile.data);
 
-  const changeData = () => {
-    dispatch.profile.setData(10);
+  const changeData = async () => {
+    await dispatch.profile.fetchDetailProfile();
   };
 
   console.log(data);

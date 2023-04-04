@@ -14,7 +14,7 @@ const configPersist = createRematchPersist({
 
 const store = init({
   models,
-  plugins: [loadingPlugin()] as any,
+  plugins: [configPersist, loadingPlugin()] as any,
 });
 
 export default store;

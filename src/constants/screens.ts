@@ -1,13 +1,13 @@
 export const APP_SCREENS = {
-  HOME: 'app.home',
-  PROFILE: 'app.profile',
-  CALENDER: 'app.calender',
-  SETTING: 'app.settings',
+  HOME: 'Home',
+  PROFILE: 'Profile',
+  CALENDER: 'Calender',
+  SETTING: 'Settings',
 };
 
 export const ACCOUNT_SCREENS = {
-  ONBOARDING: 'account.onboarding',
-  LOGIN: 'account.login',
-  REGISTER: 'account.register',
-  AUTHENTICATE_OTP: 'account.authenticateOTP',
+  ONBOARDING: 'Onboarding',
+  LOGIN: 'Login',
+  REGISTER: 'Register',
+  AUTHENTICATE_OTP: 'AuthenticateOTP',
 };

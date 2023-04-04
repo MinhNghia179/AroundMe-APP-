@@ -8,8 +8,11 @@ const OnBoardingView = () => {
   const dispatch = useDispatch<Dispatch>();
 
   const store = useSelector((rootState: RootStore) => rootState);
-  const { loading, error } = store.loading.models.profile;
-  const { data } = store.profile;
+
+  const [{ loading, error }, { data }] = [
+    store.loading.models.profile,
+    store.profile,
+  ];
 
   const changeData = async () => {
     await dispatch.profile.fetchDetailProfile();

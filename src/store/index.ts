@@ -1,8 +1,10 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { RematchDispatch, RematchRootState, init } from '@rematch/core';
-import loadingPlugin from '@rematch/loading';
+import loadingPlugin, { ExtraModelsFromLoading } from '@rematch/loading';
 import createRematchPersist from '@rematch/persist';
 import { RootModel, models } from './models';
+
+type FullModel = ExtraModelsFromLoading<RootModel, { type: 'full' }>;
 
 const configPersist = createRematchPersist({
   key: 'root',
@@ -12,13 +14,13 @@ const configPersist = createRematchPersist({
   version: 1,
 });
 
-const store = init({
+const store = init<RootModel, FullModel>({
   models,
-  plugins: [configPersist, loadingPlugin()] as any,
+  plugins: [configPersist, loadingPlugin({ type: 'full' })] as any,
 });
 
 export default store;
 
 export type Store = typeof store;
-export type RootStore = RematchRootState<typeof models>;
+export type RootStore = RematchRootState<RootModel, FullModel>;
 export type Dispatch = RematchDispatch<RootModel>;

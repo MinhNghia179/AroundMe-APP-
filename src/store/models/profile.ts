@@ -20,7 +20,8 @@ const reducers = {
 
 const effects = (dispatch: Dispatch) => ({
   async fetchDetailProfile() {
-    await ApiClient.get('https://dummyjson.com/products');
+    const response = await ApiClient.get('https://dummyjson.com/products');
+    dispatch.profile.setData(response.data.products.length);
   },
 });
 

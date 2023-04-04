@@ -6,10 +6,14 @@ import store from '.';
 
 const persistor = getPersistor();
 
+const LoadingView = () => {
+  return <></>;
+};
+
 const Gate = ({ children }: PropsWithChildren) => {
   return (
     <Provider store={store}>
-      <PersistGate persistor={persistor} loading={<></>}>
+      <PersistGate persistor={persistor} loading={<LoadingView />}>
         {children}
       </PersistGate>
     </Provider>

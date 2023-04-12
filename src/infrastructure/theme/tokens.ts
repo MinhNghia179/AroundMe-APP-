@@ -8,3 +8,5 @@ export const customFonts = {
   'Alkatra-SemiBold': require('@app/assets/fonts/Alkatra-Medium.ttf'),
   'Alkatra-Bold': require('@app/assets/fonts/Alkatra-Bold.ttf'),
 };
+
+export const images = {};

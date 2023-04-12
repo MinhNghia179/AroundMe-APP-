@@ -14,7 +14,7 @@ const defaultTextStyles = (theme: Theme) => `
   margin-top: 0px;
   margin-bottom: 0px;
   color: ${theme.colors.text.primary};
-  font-family: ${theme.fonts.regular};
+  font-family: ${theme.fonts.bold};
   font-weight: ${theme.fontWeights.regular};
 `;
 

@@ -1,5 +1,6 @@
 import { PERSISTENCE_KEY } from '@app/constants/async-storage';
 import SettingContextProvider from '@app/contexts/setting/SettingContext';
+import useCachedResources from '@app/hooks/useCachedResources';
 import { Navigation } from '@app/infrastructure/navigation';
 import { theme } from '@app/infrastructure/theme';
 import AuthenticationContextProvider from '@app/services/authentication/AuthenticationContext';
@@ -11,9 +12,9 @@ import {
   NavigationContainer,
   NavigationState,
 } from '@react-navigation/native';
+import AppLoading from 'expo-app-loading';
 import { isNull } from 'lodash';
 import React, { useEffect, useState } from 'react';
-import Config from 'react-native-config';
 import { ThemeProvider } from 'styled-components';
 
 const options: LinkingOptions<{}> = {
@@ -21,20 +22,15 @@ const options: LinkingOptions<{}> = {
 };
 
 const App = () => {
-  const [isReady, setIsReady] = useState<boolean>(
-    __DEV__ && Config.PERSISTENCE_KEY !== 'true',
-  );
+  const [isReady, setIsReady] = useState<boolean>(false);
+
+  const isLoadingComplete = useCachedResources();
+
   const [InitialState, setInitialState] = useState<InitialState>();
 
   const onStateChange = (newState: NavigationState | undefined) => {
     return AsyncStorage.setItem(PERSISTENCE_KEY, JSON.stringify(newState));
   };
-
-  if (__DEV__) {
-    console.log('Running app in developer mode');
-  } else {
-    console.log('Running app in product mode');
-  }
 
   useEffect(() => {
     (async () => {
@@ -50,9 +46,11 @@ const App = () => {
     })();
   }, []);
 
-  if (!isReady) {
+  if (!isLoadingComplete) {
     return <></>;
   }
+
+  console.log(isLoadingComplete);
 
   return (
     <ThemeProvider theme={theme}>

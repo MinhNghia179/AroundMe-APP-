@@ -12,7 +12,6 @@ import {
   NavigationContainer,
   NavigationState,
 } from '@react-navigation/native';
-import AppLoading from 'expo-app-loading';
 import { isNull } from 'lodash';
 import React, { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
@@ -24,7 +23,7 @@ const options: LinkingOptions<{}> = {
 const App = () => {
   const [isReady, setIsReady] = useState<boolean>(false);
 
-  const isLoadingComplete = useCachedResources();
+  const { appIsReady } = useCachedResources();
 
   const [InitialState, setInitialState] = useState<InitialState>();
 
@@ -46,11 +45,9 @@ const App = () => {
     })();
   }, []);
 
-  if (!isLoadingComplete) {
+  if (!appIsReady || !isReady) {
     return <></>;
   }
-
-  console.log(isLoadingComplete);
 
   return (
     <ThemeProvider theme={theme}>
@@ -62,7 +59,7 @@ const App = () => {
               onStateChange={onStateChange}
               linking={options}
               fallback={<></>}>
-              <Navigation></Navigation>
+              <Navigation />
             </NavigationContainer>
           </AuthenticationContextProvider>
         </SettingContextProvider>

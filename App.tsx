@@ -1,3 +1,4 @@
+import { queryClient } from '@app/configs/react-query';
 import { PERSISTENCE_KEY } from '@app/constants/async-storage';
 import SettingContextProvider from '@app/contexts/setting/SettingContext';
 import useCachedResources from '@app/hooks/useCachedResources';
@@ -12,6 +13,7 @@ import {
   NavigationContainer,
   NavigationState,
 } from '@react-navigation/native';
+import { QueryClientProvider } from '@tanstack/react-query';
 import { isNull } from 'lodash';
 import React, { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
@@ -51,19 +53,19 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Gate>
-        <SettingContextProvider>
-          <AuthenticationContextProvider>
-            <NavigationContainer
-              initialState={InitialState}
-              onStateChange={onStateChange}
-              linking={options}
-              fallback={<></>}>
+      <QueryClientProvider client={queryClient}>
+        <NavigationContainer
+          initialState={InitialState}
+          onStateChange={onStateChange}
+          linking={options}
+          fallback={<></>}>
+          <Gate>
+            <SettingContextProvider>
               <Navigation />
-            </NavigationContainer>
-          </AuthenticationContextProvider>
-        </SettingContextProvider>
-      </Gate>
+            </SettingContextProvider>
+          </Gate>
+        </NavigationContainer>
+      </QueryClientProvider>
     </ThemeProvider>
   );
 };

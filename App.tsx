@@ -4,7 +4,6 @@ import SettingContextProvider from '@app/contexts/setting/SettingContext';
 import useCachedResources from '@app/hooks/useCachedResources';
 import { Navigation } from '@app/infrastructure/navigation';
 import { theme } from '@app/infrastructure/theme';
-import AuthenticationContextProvider from '@app/services/authentication/AuthenticationContext';
 import Gate from '@app/store/gate';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {

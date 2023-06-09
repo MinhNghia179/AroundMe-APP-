@@ -2,8 +2,20 @@
   "migIndex": 1,
   "data": [
     {
-      "path": "src/assets/fonts/Alkatra-VariableFont_wght.ttf",
-      "sha1": "b82c5927d2c0898ec0a279b85c4488fd8c120c22"
+      "path": "src/assets/fonts/Alkatra-Bold.ttf",
+      "sha1": "091f359796a11546e5492aeafefd582b1c6267b7"
+    },
+    {
+      "path": "src/assets/fonts/Alkatra-Medium.ttf",
+      "sha1": "546c105063c2530c3115a02f4fdcfddb6ebdd304"
+    },
+    {
+      "path": "src/assets/fonts/Alkatra-Regular.ttf",
+      "sha1": "4d69ea1bbf0cb4f277177046543a595d6401802b"
+    },
+    {
+      "path": "src/assets/fonts/Alkatra-SemiBold.ttf",
+      "sha1": "bf71b4bfa4ff217e8bf72dd1efe56d46d5860a27"
     }
   ]
 }

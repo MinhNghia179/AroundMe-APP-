@@ -53,7 +53,10 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Alkatra-VariableFont_wght.ttf</string>
+		<string>Alkatra-Bold.ttf</string>
+		<string>Alkatra-Medium.ttf</string>
+		<string>Alkatra-Regular.ttf</string>
+		<string>Alkatra-SemiBold.ttf</string>
 	</array>
 </dict>
 </plist>

@@ -33,10 +33,10 @@ const useCachedResources = () => {
         ]);
         const fontAssets = cacheFonts([
           {
-            'Alkatra-Bold': require(''),
-            'Alkatra-Medium': require(''),
-            'Alkatra-Regular': require(''),
-            'Alkatra-SemiBold': require(''),
+            'Alkatra-Bold': require('@app/assets/fonts/Alkatra-Bold.ttf'),
+            'Alkatra-Medium': require('@app/assets/fonts/Alkatra-Medium.ttf'),
+            'Alkatra-Regular': require('@app/assets/fonts/Alkatra-Regular.ttf'),
+            'Alkatra-SemiBold': require('@app/assets/fonts/Alkatra-SemiBold.ttf'),
           },
         ]);
         await Promise.all([...imageAssets, ...fontAssets]);

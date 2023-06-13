@@ -9,9 +9,8 @@ type FullModel = ExtraModelsFromLoading<RootModel, { type: 'full' }>;
 const configPersist = createRematchPersist({
   key: 'root',
   storage: AsyncStorage,
-  blacklist: [''],
+  blacklist: ['auth'],
   whitelist: [''],
-  version: 1,
 });
 
 const store = init<RootModel, FullModel>({

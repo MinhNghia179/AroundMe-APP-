@@ -1,6 +1,7 @@
 import { Dispatch, RootStore } from '@app/store';
-import React, { Suspense, startTransition, useCallback, useState } from 'react';
+import React, { startTransition, useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 const OnBoardingView = () => {
   const dispatch = useDispatch<Dispatch>();
   const [searchQuery, setSearchQuery] = useState<string>('');

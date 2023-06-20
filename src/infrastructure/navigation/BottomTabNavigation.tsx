@@ -46,7 +46,6 @@ const TabNavigator = () => {
       <Tab.Navigator
         keyboardHidesNavigationBar
         activeColor="#DEB887"
-        labeled={false}
         initialRouteName={APP_NAVIGATORS.HOME}
         barStyle={[styles.customBar]}
         sceneAnimationEnabled
@@ -55,8 +54,9 @@ const TabNavigator = () => {
           name={APP_NAVIGATORS.HOME}
           component={HomeNavigator}
           options={{
+            tabBarLabel: 'HOME',
             tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="home" color={color} size={26} />
+              <MaterialCommunityIcons name="home" color={color} size={25} />
             ),
           }}
           listeners={({ navigation, route }) => ({
@@ -72,8 +72,9 @@ const TabNavigator = () => {
           name={APP_NAVIGATORS.CALENDER}
           component={CalenderNavigator}
           options={{
+            tabBarLabel: 'CALENDER',
             tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="calendar" color={color} size={26} />
+              <MaterialCommunityIcons name="calendar" color={color} size={25} />
             ),
           }}
           listeners={({ navigation, route }) => ({
@@ -89,6 +90,7 @@ const TabNavigator = () => {
           name={APP_NAVIGATORS.START_RUN}
           component={StartRunNavigator}
           options={{
+            tabBarLabel: '',
             tabBarIcon: props => <CustomTabBarButton {...props} />,
           }}
         />
@@ -96,8 +98,9 @@ const TabNavigator = () => {
           name={APP_NAVIGATORS.SETTING}
           component={CalenderNavigator}
           options={{
+            tabBarLabel: 'SETTING',
             tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="setting" color={color} size={26} />
+              <MaterialCommunityIcons name="setting" color={color} size={25} />
             ),
           }}
           listeners={({ navigation, route }) => ({
@@ -113,8 +116,9 @@ const TabNavigator = () => {
           name={APP_NAVIGATORS.PROFILE}
           component={ProfileNavigator}
           options={{
+            tabBarLabel: 'PROFILE',
             tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="profile" color={color} size={26} />
+              <MaterialCommunityIcons name="profile" color={color} size={25} />
             ),
           }}
           listeners={({ navigation, route }) => ({
@@ -133,7 +137,7 @@ const TabNavigator = () => {
           height: 4,
           backgroundColor: '#DEB887',
           position: 'absolute',
-          bottom: 72,
+          bottom: 90,
           left: 30,
           borderRadius: 20,
           transform: [{ translateX: tabOffsetValue }],
@@ -148,7 +152,6 @@ const styles = StyleSheet.create({
   btnPlus: {
     width: 40,
     height: 40,
-    top: -10,
     backgroundColor: '#DEB887',
     borderRadius: 100,
     justifyContent: 'center',
@@ -168,7 +171,6 @@ const styles = StyleSheet.create({
       width: 10,
       height: 10,
     },
-    height: 60,
-    zIndex: 0,
+    height: 80,
   },
 });

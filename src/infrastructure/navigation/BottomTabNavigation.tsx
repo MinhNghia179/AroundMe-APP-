@@ -79,7 +79,7 @@ const TabNavigator = () => {
           listeners={({ navigation, route }) => ({
             tabPress: e => {
               Animated.spring(tabOffsetValue, {
-                toValue: getWidth() * 1.2,
+                toValue: getWidth() * 1.15,
                 useNativeDriver: true,
               }).start();
             },

@@ -156,7 +156,6 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     justifyContent: 'center',
     alignItems: 'center',
-    // marginBottom: Platform.OS == 'android' ? 80 : 30,
   },
   customBar: {
     backgroundColor: '#ffff',

@@ -1,6 +1,7 @@
 import { FirebaseOptions } from '@firebase/app-types';
-import firebase from 'firebase/app';
+import { initializeApp } from 'firebase/app';
 import 'firebase/auth';
+import { getAuth } from 'firebase/auth';
 import 'firebase/firestore';
 import 'firebase/storage';
 import Config from 'react-native-config';
@@ -13,8 +14,8 @@ const firebaseConfig: FirebaseOptions = {
   messagingSenderId: Config.FIREBASE_MESSAGING_SENDER_ID,
 };
 
-if (!firebase.getApps().length) {
-  firebase.initializeApp(firebaseConfig);
-}
+const firebase = initializeApp(firebaseConfig);
+
+export const auth = getAuth(firebase);
 
 export { firebase };

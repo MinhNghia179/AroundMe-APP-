@@ -1,7 +1,6 @@
 import { queryClient } from '@app/configs/react-query';
 import { PERSISTENCE_KEY } from '@app/constants/async-storage';
 import SettingContextProvider from '@app/contexts/setting/SettingContext';
-import useCachedResources from '@app/hooks/useCachedResources';
 import { Navigation } from '@app/infrastructure/navigation';
 import { theme } from '@app/infrastructure/theme';
 import Gate from '@app/store/gate';
@@ -16,7 +15,6 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import { isNull } from 'lodash';
 import React, { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
-
 const options: LinkingOptions<{}> = {
   prefixes: [],
 };
@@ -24,7 +22,7 @@ const options: LinkingOptions<{}> = {
 const App = () => {
   const [isReady, setIsReady] = useState<boolean>(false);
 
-  const { appIsReady } = useCachedResources();
+  // const { appIsReady } = useCachedResources();
 
   const [InitialState, setInitialState] = useState<InitialState>();
 
@@ -46,7 +44,7 @@ const App = () => {
     })();
   }, []);
 
-  if (!appIsReady || !isReady) {
+  if (!isReady) {
     return <></>;
   }
 

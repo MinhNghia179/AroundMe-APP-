@@ -9,7 +9,7 @@ export const Navigation = () => {
   const { isAuthenticate } = useSelector((state: RootStore) => state.auth);
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      {isAuthenticate ? <AppNavigator /> : <AccountNavigator />}
+      {!isAuthenticate ? <AppNavigator /> : <AccountNavigator />}
     </SafeAreaView>
   );
 };

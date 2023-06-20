@@ -1,8 +1,7 @@
 import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
-import * as SplashScreen from 'expo-splash-screen';
 import { isString } from 'lodash';
-import * as React from 'react';
+import { useEffect, useState } from 'react';
 import { Image } from 'react-native';
 
 const cacheImages = (images: (string | number)[]) => {
@@ -20,12 +19,11 @@ const cacheFonts = (fonts: { [key: string]: string | number }[]) => {
 };
 
 const useCachedResources = () => {
-  const [appIsReady, setAppIsReady] = React.useState(false);
+  const [appIsReady, setAppIsReady] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     async function loadResourcesAndDataAsync() {
       try {
-        SplashScreen.preventAutoHideAsync();
         const imageAssets = cacheImages([
           require(''),
           require(''),
@@ -33,10 +31,10 @@ const useCachedResources = () => {
         ]);
         const fontAssets = cacheFonts([
           {
-            'Alkatra-Bold': require('@app/assets/fonts/Alkatra-Bold.ttf'),
-            'Alkatra-Medium': require('@app/assets/fonts/Alkatra-Medium.ttf'),
-            'Alkatra-Regular': require('@app/assets/fonts/Alkatra-Regular.ttf'),
-            'Alkatra-SemiBold': require('@app/assets/fonts/Alkatra-SemiBold.ttf'),
+            'Alkatra-Bold': require('../assets/fonts/Alkatra-Bold.ttf'),
+            'Alkatra-Medium': require('../assets/fonts/Alkatra-Medium.ttf'),
+            'Alkatra-Regular': require('../assets/fonts/Alkatra-Regular.ttf'),
+            'Alkatra-SemiBold': require('../assets/fonts/Alkatra-SemiBold.ttf'),
           },
         ]);
         await Promise.all([...imageAssets, ...fontAssets]);
@@ -44,10 +42,8 @@ const useCachedResources = () => {
         console.warn(e);
       } finally {
         setAppIsReady(true);
-        SplashScreen.hideAsync();
       }
     }
-
     loadResourcesAndDataAsync();
   }, []);
 

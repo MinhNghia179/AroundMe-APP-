@@ -3,6 +3,7 @@ export const APP_NAVIGATORS = {
   PROFILE: 'Profile',
   CALENDER: 'Calender',
   SETTING: 'Settings',
+  START_RUN: 'StartRun',
 };
 
 export const APP_SCREENS = {
@@ -14,6 +15,8 @@ export const APP_SCREENS = {
   CALENDER_DASHBOARD: 'Calender.dashboard',
   // Setting
   SETTING_DASHBOARD: 'Setting.dashboard',
+  // Start Run
+  START_RUN_DASHBOARD: 'StartRun.dashboard',
 };
 
 export const ACCOUNT_SCREENS = {

@@ -25,7 +25,7 @@ const useCachedResources = () => {
   React.useEffect(() => {
     async function loadResourcesAndDataAsync() {
       try {
-        SplashScreen.preventAutoHideAsync();
+        // SplashScreen.preventAutoHideAsync();
         const imageAssets = cacheImages([
           require(''),
           require(''),
@@ -33,10 +33,10 @@ const useCachedResources = () => {
         ]);
         const fontAssets = cacheFonts([
           {
-            'Alkatra-Bold': require('@app/assets/fonts/Alkatra-Bold.ttf'),
-            'Alkatra-Medium': require('@app/assets/fonts/Alkatra-Medium.ttf'),
-            'Alkatra-Regular': require('@app/assets/fonts/Alkatra-Regular.ttf'),
-            'Alkatra-SemiBold': require('@app/assets/fonts/Alkatra-SemiBold.ttf'),
+            'Alkatra-Bold': require('src/assets/fonts/Alkatra-Bold.ttf'),
+            'Alkatra-Medium': require('src/assets/fonts/Alkatra-Medium.ttf'),
+            'Alkatra-Regular': require('src/assets/fonts/Alkatra-Regular.ttf'),
+            'Alkatra-SemiBold': require('src/assets/fonts/Alkatra-SemiBold.ttf'),
           },
         ]);
         await Promise.all([...imageAssets, ...fontAssets]);
@@ -44,7 +44,7 @@ const useCachedResources = () => {
         console.warn(e);
       } finally {
         setAppIsReady(true);
-        SplashScreen.hideAsync();
+        // SplashScreen.hideAsync();
       }
     }
 

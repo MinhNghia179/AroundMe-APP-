@@ -23,7 +23,6 @@ const options: LinkingOptions<{}> = {
 
 const App = () => {
   const [isReady, setIsReady] = useState<boolean>(false);
-
   const { appIsReady } = useCachedResources();
 
   const [InitialState, setInitialState] = useState<InitialState>();

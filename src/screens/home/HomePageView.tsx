@@ -3,7 +3,7 @@ import { Text, View } from 'react-native';
 
 const HomePageView = () => {
   return (
-    <View>
+    <View style={{ flex: 1, backgroundColor: 'yellow' }}>
       <Text>HomePageView</Text>
     </View>
   );

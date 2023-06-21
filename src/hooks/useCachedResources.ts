@@ -1,9 +1,9 @@
 import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
-import * as SplashScreen from 'expo-splash-screen';
 import { isString } from 'lodash';
-import * as React from 'react';
+import { useEffect, useState } from 'react';
 import { Image } from 'react-native';
+import { useTheme } from 'react-native-paper';
 
 const cacheImages = (images: (string | number)[]) => {
   return images.map(image => {
@@ -20,10 +20,11 @@ const cacheFonts = (fonts: { [key: string]: string | number }[]) => {
 };
 
 const useCachedResources = () => {
-  const [appIsReady, setAppIsReady] = React.useState(false);
-
-  React.useEffect(() => {
+  const [appIsReady, setAppIsReady] = useState(false);
+  const theme = useTheme();
+  useEffect(() => {
     async function loadResourcesAndDataAsync() {
+      theme.colors.secondaryContainer = 'transperent';
       try {
         // SplashScreen.preventAutoHideAsync();
         const imageAssets = cacheImages([
@@ -47,7 +48,6 @@ const useCachedResources = () => {
         // SplashScreen.hideAsync();
       }
     }
-
     loadResourcesAndDataAsync();
   }, []);
 

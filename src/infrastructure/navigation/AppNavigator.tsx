@@ -1,4 +1,3 @@
-import { APP_SCREENS } from '@app/constants/screens';
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 import DrawerNavigator from './DrawerNavigation';
@@ -12,7 +11,7 @@ const AppNavigator = () => {
         headerShown: false,
       }}>
       <Stack.Screen
-        name={APP_SCREENS.HOME}
+        name="DrawerNavigatorScreen"
         component={DrawerNavigator}></Stack.Screen>
     </Stack.Navigator>
   );

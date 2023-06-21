@@ -5,14 +5,14 @@ import React from 'react';
 
 const Stack = createStackNavigator();
 
-const ProfileNavigator = () => {
+const StartRunNavigator = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen
-        name={APP_SCREENS.PROFILE_DASHBOARD}
+        name={APP_SCREENS.START_RUN_DASHBOARD}
         component={ProfilePageView}></Stack.Screen>
     </Stack.Navigator>
   );
 };
 
-export default ProfileNavigator;
+export default StartRunNavigator;

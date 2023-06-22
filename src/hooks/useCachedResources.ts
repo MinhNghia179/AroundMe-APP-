@@ -1,5 +1,5 @@
-import * as Font from 'expo-font';
 import { Asset } from 'expo-asset';
+import * as Font from 'expo-font';
 import { isString } from 'lodash';
 import { useEffect, useState } from 'react';
 import { Image } from 'react-native';
@@ -26,7 +26,12 @@ const useCachedResources = () => {
     theme.colors.secondaryContainer = 'transperent';
     async function loadResourcesAndDataAsync() {
       try {
-        // const imageAssets = cacheImages([require('')]);
+        // SplashScreen.preventAutoHideAsync();
+        // const imageAssets = cacheImages([
+        //   require(''),
+        //   require(''),
+        //   require(''),
+        // ]);
         // const fontAssets = cacheFonts([
         //   {
         //     'Alkatra-Bold': require('src/assets/fonts/Alkatra-Bold.ttf'),
@@ -40,6 +45,7 @@ const useCachedResources = () => {
         console.warn(e);
       } finally {
         setAppIsReady(true);
+        // SplashScreen.hideAsync();
       }
     }
     loadResourcesAndDataAsync();

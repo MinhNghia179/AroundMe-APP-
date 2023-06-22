@@ -4,6 +4,7 @@ import { isString } from 'lodash';
 import { useEffect, useState } from 'react';
 import { Image } from 'react-native';
 import { useTheme } from 'react-native-paper';
+import SplashScreen from 'react-native-splash-screen';
 
 const cacheImages = (images: (string | number)[]) => {
   return images.map(image => {
@@ -26,6 +27,7 @@ const useCachedResources = () => {
     theme.colors.secondaryContainer = 'transperent';
     async function loadResourcesAndDataAsync() {
       try {
+        SplashScreen.show();
         // SplashScreen.preventAutoHideAsync();
         // const imageAssets = cacheImages([
         //   require(''),
@@ -45,7 +47,7 @@ const useCachedResources = () => {
         console.warn(e);
       } finally {
         setAppIsReady(true);
-        // SplashScreen.hideAsync();
+        SplashScreen.hide();
       }
     }
     loadResourcesAndDataAsync();

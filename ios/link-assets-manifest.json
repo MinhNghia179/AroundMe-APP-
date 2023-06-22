@@ -16,6 +16,42 @@
     {
       "path": "src/assets/fonts/Alkatra-SemiBold.ttf",
       "sha1": "bf71b4bfa4ff217e8bf72dd1efe56d46d5860a27"
+    },
+    {
+      "path": "src/assets/icons/plus.png",
+      "sha1": "23738f3e4b1088b560362322fdbb08bb0a79cb9c"
+    },
+    {
+      "path": "src/assets/images/intro/intro1.png",
+      "sha1": "d317c184046276f61f0d7f16697925b5b0bb688b"
+    },
+    {
+      "path": "src/assets/images/intro/intro2.png",
+      "sha1": "0901e50bee97093debb77b78ae261f7b5e41c168"
+    },
+    {
+      "path": "src/assets/images/intro/intro3.png",
+      "sha1": "5c10b5764cf77e2ddde30aee7572fee3f91f4309"
+    },
+    {
+      "path": "src/assets/images/logo/logo_1x.jpg",
+      "sha1": "14263c377dc6b631cda6b263dd30b30569c068bb"
+    },
+    {
+      "path": "src/assets/images/logo/logo_2x.jpg",
+      "sha1": "48af8939eacdda683fad344c80056f1b89fd5c20"
+    },
+    {
+      "path": "src/assets/images/logo/logo_3x.jpg",
+      "sha1": "cafa6e2936d8ab07333313af7aef6d951547eb07"
+    },
+    {
+      "path": "src/assets/images/logo/logo_md.jpg",
+      "sha1": "b5a2707a36663850bb63d58fa84a8349d7113030"
+    },
+    {
+      "path": "src/assets/images/logo/logo_sm.jpg",
+      "sha1": "832690fdf87ade05301c69240d3aef4f62d24655"
     }
   ]
 }

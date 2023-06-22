@@ -60,13 +60,9 @@ const OnBoardingView = () => {
       data={slides}
       renderItem={({ item }) => (
         <View>
-          <Image
-            resizeMode="contain"
-            source={item.image}
-            style={{ width: '100%' }}
-          />
           <Text>{item.title}</Text>
           <Text>{item.text}</Text>
+          <Image resizeMode="contain" source={item.image} />
         </View>
       )}
       showSkipButton

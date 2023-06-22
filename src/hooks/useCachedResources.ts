@@ -1,5 +1,5 @@
-import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
+import { Asset } from 'expo-asset';
 import { isString } from 'lodash';
 import { useEffect, useState } from 'react';
 import { Image } from 'react-native';
@@ -23,20 +23,16 @@ const useCachedResources = () => {
   const [appIsReady, setAppIsReady] = useState(false);
   const theme = useTheme();
   useEffect(() => {
+    theme.colors.secondaryContainer = 'transperent';
     async function loadResourcesAndDataAsync() {
-      theme.colors.secondaryContainer = 'transperent';
       try {
-        // const imageAssets = cacheImages([
-        //   require(''),
-        //   require(''),
-        //   require(''),
-        // ]);
+        // const imageAssets = cacheImages([require('')]);
         // const fontAssets = cacheFonts([
         //   {
-        //     'Alkatra-Bold': require('../assets/fonts/Alkatra-Bold.ttf'),
-        //     'Alkatra-Medium': require('../assets/fonts/Alkatra-Medium.ttf'),
-        //     'Alkatra-Regular': require('../assets/fonts/Alkatra-Regular.ttf'),
-        //     'Alkatra-SemiBold': require('../assets/fonts/Alkatra-SemiBold.ttf'),
+        //     'Alkatra-Bold': require('src/assets/fonts/Alkatra-Bold.ttf'),
+        //     'Alkatra-Medium': require('src/assets/fonts/Alkatra-Medium.ttf'),
+        //     'Alkatra-Regular': require('src/assets/fonts/Alkatra-Regular.ttf'),
+        //     'Alkatra-SemiBold': require('src/assets/fonts/Alkatra-SemiBold.ttf'),
         //   },
         // ]);
         // await Promise.all([...imageAssets, ...fontAssets]);

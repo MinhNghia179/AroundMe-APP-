@@ -3,8 +3,8 @@ import * as Font from 'expo-font';
 import { isString } from 'lodash';
 import { useEffect, useState } from 'react';
 import { Image } from 'react-native';
-import { useTheme } from 'react-native-paper';
 import RNBootSplash from 'react-native-bootsplash';
+import { useTheme } from 'react-native-paper';
 
 const cacheImages = (images: (string | number)[]) => {
   return images.map(image => {
@@ -27,7 +27,6 @@ const useCachedResources = () => {
     theme.colors.secondaryContainer = 'transperent';
     async function loadResourcesAndDataAsync() {
       try {
-        // SplashScreen.preventAutoHideAsync();
         // const imageAssets = cacheImages([
         //   require(''),
         //   require(''),

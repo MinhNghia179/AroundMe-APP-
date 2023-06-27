@@ -4,6 +4,7 @@ import { isString } from 'lodash';
 import { useEffect, useState } from 'react';
 import { Image } from 'react-native';
 import { useTheme } from 'react-native-paper';
+import RNBootSplash from 'react-native-bootsplash';
 
 const cacheImages = (images: (string | number)[]) => {
   return images.map(image => {
@@ -45,6 +46,7 @@ const useCachedResources = () => {
         console.warn(e);
       } finally {
         setAppIsReady(true);
+        RNBootSplash.hide();
       }
     }
     loadResourcesAndDataAsync();

@@ -3,7 +3,6 @@ import * as Font from 'expo-font';
 import { isString } from 'lodash';
 import { useEffect, useState } from 'react';
 import { Image } from 'react-native';
-import RNBootSplash from 'react-native-bootsplash';
 import { useTheme } from 'react-native-paper';
 
 const cacheImages = (images: (string | number)[]) => {
@@ -45,7 +44,6 @@ const useCachedResources = () => {
         console.warn(e);
       } finally {
         setAppIsReady(true);
-        RNBootSplash.hide();
       }
     }
     loadResourcesAndDataAsync();

@@ -15,6 +15,7 @@ import {
 import { QueryClientProvider } from '@tanstack/react-query';
 import { isNull } from 'lodash';
 import React, { useEffect, useState } from 'react';
+import RNBootSplash from 'react-native-bootsplash';
 
 const options: LinkingOptions<{}> = {
   prefixes: [],
@@ -52,6 +53,7 @@ const App = () => {
     <ThemeContextProvider>
       <QueryClientProvider client={queryClient}>
         <NavigationContainer
+          onReady={() => RNBootSplash.hide()}
           initialState={InitialState}
           onStateChange={onStateChange}
           linking={options}

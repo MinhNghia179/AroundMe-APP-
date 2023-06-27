@@ -1,3 +1,4 @@
+import useTheme from '@app/hooks/useTheme';
 import {
   DrawerContentComponentProps,
   DrawerContentScrollView,
@@ -11,8 +12,9 @@ import TabNavigator from './BottomTabNavigation';
 const Drawer = createDrawerNavigator();
 
 const CustomDrawer = (props: DrawerContentComponentProps) => {
+  const { theme } = useTheme();
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: theme?.primary_100 }}>
       {/* Custom Header Components */}
       <DrawerContentScrollView {...props}>
         <DrawerItemList {...props} />

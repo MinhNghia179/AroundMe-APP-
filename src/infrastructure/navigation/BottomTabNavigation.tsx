@@ -1,4 +1,5 @@
 import { APP_NAVIGATORS } from '@app/constants/screens';
+import useTheme from '@app/hooks/useTheme';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import React, { useRef } from 'react';
 import {
@@ -40,6 +41,7 @@ const CustomTabBarButton = (props: any) => {
 };
 
 const TabNavigator = () => {
+  const { theme } = useTheme();
   const tabOffsetValue = useRef(new Animated.Value(0)).current;
   return (
     <>
@@ -47,7 +49,7 @@ const TabNavigator = () => {
         keyboardHidesNavigationBar
         activeColor="#DEB887"
         initialRouteName={APP_NAVIGATORS.HOME}
-        barStyle={[styles.customBar]}
+        barStyle={[styles.customBar, { backgroundColor: theme?.primary_100 }]}
         sceneAnimationEnabled
         backBehavior="history">
         <Tab.Screen
@@ -158,7 +160,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   customBar: {
-    backgroundColor: '#ffff',
     justifyContent: 'center',
     position: 'absolute',
     margin: 15,

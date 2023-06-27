@@ -3,7 +3,10 @@ import { useContext } from 'react';
 
 const useTheme = () => {
   const themeContext = useContext(ThemeContext);
-  return themeContext?.themeState;
+  return {
+    theme: themeContext?.themeState,
+    toggle: themeContext?.toggleTheme,
+  };
 };
 
 export default useTheme;

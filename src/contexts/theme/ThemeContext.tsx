@@ -1,3 +1,5 @@
+import { THEME_KEY } from '@app/constants/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {
   PropsWithChildren,
   createContext,
@@ -15,9 +17,21 @@ export const ThemeContext = createContext<ThemeContextType | null>(null);
 const ThemeContextProvider = ({ children }: PropsWithChildren<unknown>) => {
   const [themeState, setThemeState] = useState<Theme>(themes.light);
 
-  const toggleTheme = async () => {};
+  const toggleTheme = async () => {
+    const theme = themeState === themes.light ? themes.dark : themes.light;
+    await AsyncStorage.setItem(THEME_KEY, JSON.stringify(theme));
+    setThemeState(theme);
+  };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    async function loadResourceThemeAsync() {
+      const theme = await AsyncStorage.getItem(THEME_KEY);
+      if (theme !== null) {
+        setThemeState(JSON.parse(theme));
+      }
+    }
+    loadResourceThemeAsync();
+  }, []);
 
   return (
     <ThemeContext.Provider value={{ themeState, toggleTheme }}>

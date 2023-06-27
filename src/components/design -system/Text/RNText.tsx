@@ -1,4 +1,3 @@
-import { theme } from '@app/infrastructure/theme';
 import React, { PropsWithChildren } from 'react';
 import { StyleSheet, Text, TextProps } from 'react-native';
 
@@ -25,7 +24,6 @@ type RNTextProps = {
 const RNText = (props: RNTextProps) => {
   const {
     children,
-    color = theme.colors.text.primary,
     variant = 'primary',
     size = 'regular',
     fontWeight = 'regular',
@@ -66,21 +64,11 @@ export const styles = StyleSheet.create({
   caption: {
     fontSize: 12,
   },
-  error: {
-    color: theme.colors.text.error,
-  },
-  disabled: {
-    color: theme.colors.text.disabled,
-  },
-  primary: {
-    color: theme.colors.text.primary,
-  },
-  success: {
-    color: theme.colors.text.success,
-  },
-  inverse: {
-    color: theme.colors.text.inverse,
-  },
+  error: {},
+  disabled: {},
+  primary: {},
+  success: {},
+  inverse: {},
   bold: {},
   semibold: {},
   medium: {},

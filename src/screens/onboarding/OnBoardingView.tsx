@@ -1,6 +1,6 @@
 import { Dispatch } from '@app/store';
 import React, { useCallback, useState } from 'react';
-import { Image, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import { useDispatch } from 'react-redux';
 
@@ -13,28 +13,24 @@ const OnBoardingView = () => {
     key: string | number;
     text: string;
     title: string;
-    image: any;
     backgroundColor: string;
   }[] = [
     {
       key: 1,
       title: 'Order Your Seed',
       text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-      image: require('../../assets/images/intro/intro1.png'),
       backgroundColor: '',
     },
     {
       key: 2,
       title: 'Follow Planting Instructions',
       text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-      image: require('../../assets/images/intro/intro2.png'),
       backgroundColor: '',
     },
     {
       key: 3,
       title: 'Enjoy Your Little Garden',
       text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-      image: require('../../assets/images/intro/intro3.png'),
       backgroundColor: '',
     },
   ];
@@ -62,7 +58,6 @@ const OnBoardingView = () => {
         <View>
           <Text>{item.title}</Text>
           <Text>{item.text}</Text>
-          <Image resizeMode="contain" source={item.image} />
         </View>
       )}
       showSkipButton

@@ -4,19 +4,13 @@ import { StyleSheet, Text, TextProps } from 'react-native';
 type Size = 'h1' | 'h2' | 'h3' | 'body' | 'caption';
 type FontWeight = 'regular' | 'bold' | 'semibold' | 'medium';
 type TextAlight = 'left' | 'center' | 'right';
-type Variant =
-  | 'success'
-  | 'info'
-  | 'error'
-  | 'disabled'
-  | 'primary'
-  | 'inverse';
+type Kind = 'success' | 'info' | 'error' | 'disabled' | 'primary' | 'inverse';
 
 type RNTextProps = {
   color?: string;
   size?: Size;
-  variant?: Variant;
-  fontWeight?: FontWeight;
+  kind?: Kind;
+  weight?: FontWeight;
   textAlight?: TextAlight;
 } & PropsWithChildren &
   TextProps;
@@ -24,14 +18,14 @@ type RNTextProps = {
 const RNText = (props: RNTextProps) => {
   const {
     children,
-    variant = 'primary',
+    kind = 'primary',
     size = 'regular',
-    fontWeight = 'regular',
+    weight = 'regular',
     ...rest
   } = props;
 
   return (
-    <Text {...rest} style={[styles.common]}>
+    <Text style={[styles.common]} {...rest}>
       {children}
     </Text>
   );
@@ -46,24 +40,11 @@ export const styles = StyleSheet.create({
     marginLeft: 0,
     marginRight: 0,
   },
-  h1: {
-    fontSize: 32,
-    lineHeight: 38,
-  },
-  h2: {
-    fontSize: 24,
-    lineHeight: 28,
-  },
-  h3: {
-    fontSize: 18,
-    lineHeight: 26,
-  },
-  body: {
-    fontSize: 16,
-  },
-  caption: {
-    fontSize: 12,
-  },
+  h1: {},
+  h2: {},
+  h3: {},
+  body: {},
+  caption: {},
   error: {},
   disabled: {},
   primary: {},

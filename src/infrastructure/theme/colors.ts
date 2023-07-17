@@ -1,6 +1,6 @@
-export const WHITE = '#fff';
-export const INFO = '#497afc';
-export const DANGER = '#dd2c00';
+export const INFO = '#1a91ff';
+export const ERROR = '#ef4444';
+export const SUCCESS = '#22c55e';
 
 // Dark theme
 export const DT_PRIMARY_025 = '#ffffff';

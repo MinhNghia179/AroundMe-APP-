@@ -16,14 +16,17 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import { isNull } from 'lodash';
 import React, { useEffect, useState } from 'react';
 import RNBootSplash from 'react-native-bootsplash';
+import { useTheme } from 'react-native-paper';
 
 const options: LinkingOptions<{}> = {
   prefixes: [],
 };
 
 const App = () => {
+  const theme = useTheme();
   const [isReady, setIsReady] = useState<boolean>(false);
-  const { appIsReady } = useCachedResources();
+
+  useCachedResources();
 
   const [InitialState, setInitialState] = useState<InitialState>();
 
@@ -32,6 +35,7 @@ const App = () => {
   };
 
   useEffect(() => {
+    theme.colors.secondaryContainer = 'transperent';
     (async () => {
       try {
         const savedStateString = await AsyncStorage.getItem(PERSISTENCE_KEY);
@@ -45,7 +49,7 @@ const App = () => {
     })();
   }, []);
 
-  if (!appIsReady || !isReady) {
+  if (!isReady) {
     return <></>;
   }
 

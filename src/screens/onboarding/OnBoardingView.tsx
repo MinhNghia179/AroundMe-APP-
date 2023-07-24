@@ -48,23 +48,21 @@ const OnBoardingView = () => {
   const onSkip = () => {};
 
   return (
-    <AppIntroSlider
-      style={{
-        flex: 1,
-        backgroundColor: '#fff',
-      }}
-      data={slides}
-      renderItem={({ item }) => (
-        <View>
-          <Text>{item.title}</Text>
-          <Text>{item.text}</Text>
-        </View>
-      )}
-      showSkipButton
-      doneLabel="Get Started"
-      onDone={onDone}
-      onSkip={onSkip}
-    />
+    <View style={{ flex: 1, backgroundColor: '#fff' }}>
+      <AppIntroSlider
+        data={slides}
+        renderItem={({ item }) => (
+          <View>
+            <Text>{item.title}</Text>
+            <Text>{item.text}</Text>
+          </View>
+        )}
+        showSkipButton
+        doneLabel="Get Started"
+        onDone={onDone}
+        onSkip={onSkip}
+      />
+    </View>
   );
 };
 
